@@ -8,29 +8,27 @@ import jakarta.persistence.Id;
 public class Solicitacao {
     private @Id @GeneratedValue Long id;
     private int status; //1=aprovado, 0=pendente, -1=declinado
-    private String data, descricao, justificativa, solicitante, natureza, centro, custo;
+    private String data, descricao, justificativa, solicitante, centro, custo;
 
     public Solicitacao() {}
 
-    public Solicitacao(Long id, int status, String data, String descricao, String justificativa, String solicitante, String natureza, String centro, String custo) {
+    public Solicitacao(Long id, int status, String data, String descricao, String justificativa, String solicitante, String centro, String custo) {
         this.id = id;
         this.status = status;
         this.data = data;
         this.descricao = descricao;
         this.justificativa = justificativa;
         this.solicitante = solicitante;
-        this.natureza = natureza;
         this.centro = centro;
         this.custo = custo;
     }
 
-    public Solicitacao(int status, String data, String descricao, String justificativa, String solicitante, String natureza, String centro, String custo) {
+    public Solicitacao(int status, String data, String descricao, String justificativa, String solicitante, String centro, String custo) {
         this.status = status;
         this.data = data;
         this.descricao = descricao;
         this.justificativa = justificativa;
         this.solicitante = solicitante;
-        this.natureza = natureza;
         this.centro = centro;
         this.custo = custo;
     }
@@ -89,14 +87,6 @@ public class Solicitacao {
 
     public void setCusto(String custo) {
         this.custo = custo;
-    }
-
-    public String getNatureza() {
-        return natureza;
-    }
-
-    public void setNatureza(String natureza) {
-        this.natureza = natureza;
     }
 
     public String getCentro() {
