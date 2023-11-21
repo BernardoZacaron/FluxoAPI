@@ -8,22 +8,34 @@ import jakarta.persistence.Id;
 public class Usuario {
     private @Id @GeneratedValue Long id;
     private String nome, cpf;
-    private String role;
+    private String role, login, senha;
 
     public Usuario() {
     }
 
-    public Usuario(Long id, String nome, String cpf, String role) {
+    public Usuario(Long id, String nome, String cpf, String role, String login, String senha) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.role = role;
+        this.login = login;
+        this.senha = senha;
     }
 
-    public Usuario(String nome, String cpf, String role) {
+    public Usuario(String nome, String cpf, String role, String login, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.role = role;
+        this.login = login;
+        this.senha = senha;
+    }
+
+    public Usuario(Long id, String nome, String cpf, String login, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.login = login;
+        this.senha = senha;
     }
 
     public Long getId() {
@@ -56,5 +68,21 @@ public class Usuario {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

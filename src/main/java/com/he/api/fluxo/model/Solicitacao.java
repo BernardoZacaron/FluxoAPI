@@ -4,31 +4,46 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.util.Date;
+
 @Entity
 public class Solicitacao {
     private @Id @GeneratedValue Long id;
     private int status; //1=aprovado, 0=pendente, -1=declinado
-    private String data, descricao, justificativa, solicitante, centro, custo;
+    private String data, descricao, justificativa, nomeSolicitante, centro, custo;
+    private Long idSolicitante;
 
     public Solicitacao() {}
 
-    public Solicitacao(Long id, int status, String data, String descricao, String justificativa, String solicitante, String centro, String custo) {
+    public Solicitacao(Long id, int status, String data, String descricao, String justificativa, String nomeSolicitante, String centro, String custo, Long idSolicitante) {
         this.id = id;
         this.status = status;
         this.data = data;
         this.descricao = descricao;
         this.justificativa = justificativa;
-        this.solicitante = solicitante;
+        this.nomeSolicitante = nomeSolicitante;
         this.centro = centro;
         this.custo = custo;
+        this.idSolicitante = idSolicitante;
     }
 
-    public Solicitacao(int status, String data, String descricao, String justificativa, String solicitante, String centro, String custo) {
+    public Solicitacao(int status, String data, String descricao, String justificativa, String nomeSolicitante, String centro, String custo, Long idSolicitante) {
         this.status = status;
         this.data = data;
         this.descricao = descricao;
         this.justificativa = justificativa;
-        this.solicitante = solicitante;
+        this.nomeSolicitante = nomeSolicitante;
+        this.centro = centro;
+        this.custo = custo;
+        this.idSolicitante = idSolicitante;
+    }
+
+    public Solicitacao(String descricao, String solicitante, String centro, String custo) {
+        this.status = 0;
+        this.data = new Date().toString();
+        this.descricao = descricao;
+        this.justificativa = "";
+        this.nomeSolicitante = solicitante;
         this.centro = centro;
         this.custo = custo;
     }
@@ -73,12 +88,20 @@ public class Solicitacao {
         this.justificativa = justificativa;
     }
 
-    public String getSolicitante() {
-        return solicitante;
+    public String getNomeSolicitante() {
+        return nomeSolicitante;
     }
 
-    public void setSolicitante(String solicitante) {
-        this.solicitante = solicitante;
+    public void setNomeSolicitante(String nomeSolicitante) {
+        this.nomeSolicitante = nomeSolicitante;
+    }
+
+    public Long getIdSolicitante() {
+        return idSolicitante;
+    }
+
+    public void setIdSolicitante(Long idSolicitante) {
+        this.idSolicitante = idSolicitante;
     }
 
     public String getCusto() {

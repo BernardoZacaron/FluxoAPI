@@ -50,4 +50,3 @@ class SolicitacaoController {
         rep.deleteById(id);
     }
 }
-}
