@@ -4,16 +4,15 @@ import com.he.api.fluxo.database.SolicitacaoRepository;
 import com.he.api.fluxo.database.UsuarioRepository;
 import com.he.api.fluxo.model.Solicitacao;
 import com.he.api.fluxo.model.Usuario;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.logging.Logger;
-
 @Configuration
 public class CarregarUsuarios {
-    private static final Logger log = (Logger) LoggerFactory.getLogger(CarregarUsuarios.class);
+    private static final Logger log = LoggerFactory.getLogger(CarregarUsuarios.class);
 
     @Bean
     CommandLineRunner inserirSolicitacoesTeste(SolicitacaoRepository repository) {
